@@ -1,0 +1,95 @@
+{
+  "entities": [
+    {
+      "name": "Sample Project",
+      "entityType": "Project",
+      "observations": [
+        "This is a sample project for demonstration purposes",
+        "Created to show the expected JSON format for the graph visualization",
+        "Contains various entity types and relations"
+      ]
+    },
+    {
+      "name": "Frontend Component",
+      "entityType": "Component",
+      "observations": [
+        "User interface component built with Vue.js",
+        "Handles user interactions and data visualization",
+        "Implements responsive design principles"
+      ]
+    },
+    {
+      "name": "Backend Service",
+      "entityType": "Service",
+      "observations": [
+        "RESTful API service built with Node.js",
+        "Handles data processing and storage",
+        "Connects to the database for persistent storage"
+      ]
+    },
+    {
+      "name": "Database",
+      "entityType": "Infrastructure",
+      "observations": [
+        "PostgreSQL database for data storage",
+        "Contains tables for users, products, and orders",
+        "Implements proper indexing for performance"
+      ]
+    },
+    {
+      "name": "Authentication Module",
+      "entityType": "Module",
+      "observations": [
+        "Handles user authentication and authorization",
+        "Implements JWT for secure token-based authentication",
+        "Supports role-based access control"
+      ]
+    },
+    {
+      "name": "API Documentation",
+      "entityType": "Documentation",
+      "observations": [
+        "Comprehensive documentation of the API endpoints",
+        "Includes request/response examples",
+        "Generated using Swagger/OpenAPI"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "Sample Project",
+      "to": "Frontend Component",
+      "relationType": "contains"
+    },
+    {
+      "from": "Sample Project",
+      "to": "Backend Service",
+      "relationType": "contains"
+    },
+    {
+      "from": "Sample Project",
+      "to": "Database",
+      "relationType": "uses"
+    },
+    {
+      "from": "Frontend Component",
+      "to": "Backend Service",
+      "relationType": "communicates with"
+    },
+    {
+      "from": "Backend Service",
+      "to": "Database",
+      "relationType": "connects to"
+    },
+    {
+      "from": "Backend Service",
+      "to": "Authentication Module",
+      "relationType": "implements"
+    },
+    {
+      "from": "API Documentation",
+      "to": "Backend Service",
+      "relationType": "describes"
+    }
+  ]
+}

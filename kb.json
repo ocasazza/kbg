@@ -1,0 +1,545 @@
+{
+  "entities": [
+    {
+      "name": "IT Knowledge Base",
+      "entityType": "KnowledgeBase",
+      "observations": [
+        "Main knowledge base for Schrödinger's IT resources and documentation",
+        "Serves as a centralized knowledge directory for applications, operating systems, and IT problem-solving",
+        "Has a search function and popular labels for navigation",
+        "Space key is ITLC"
+      ]
+    },
+    {
+      "name": "High Performance Computing",
+      "entityType": "Section",
+      "observations": [
+        "Major section of the IT Knowledge Base focused on HPC resources",
+        "Contains information about Schrödinger's HPC clusters: bolt and pdxgpu",
+        "Includes user guides, FAQs, and documentation on schedulers"
+      ]
+    },
+    {
+      "name": "HPC User Guide",
+      "entityType": "Guide",
+      "observations": [
+        "Comprehensive guide for using Schrödinger's HPC clusters",
+        "Includes sections on quick tips, cluster architecture, getting started, job server, software builds, project priorities, queues, and storage",
+        "Recommends users subscribe to the cluster Google group for announcements and alerts"
+      ]
+    },
+    {
+      "name": "Information Security",
+      "entityType": "Section",
+      "observations": [
+        "Section focused on information security topics",
+        "Marked with warning symbols (☢️🚧) suggesting importance or work in progress"
+      ]
+    },
+    {
+      "name": "Operations",
+      "entityType": "Section",
+      "observations": [
+        "Major section of the IT Knowledge Base covering operational aspects of IT",
+        "Contains multiple subsections for different operational areas",
+        "Includes search functionality for finding content within the section"
+      ]
+    },
+    {
+      "name": "Systems & Services",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Operations covering IT systems and services",
+        "Contains information about cloud infrastructure, storage, and other IT services",
+        "Includes documentation on Jira and other systems"
+      ]
+    },
+    {
+      "name": "Office Locations & Services",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Operations covering office locations and services",
+        "Organized by geographic regions: Americas, Europe, and Asia-Pacific",
+        "Includes information about office resources, building access, and location-specific services"
+      ]
+    },
+    {
+      "name": "Hardware & Equipment",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Operations covering hardware and equipment",
+        "Includes information about Apple devices, Ubuntu workstations, Dell devices, and peripherals",
+        "Contains hardware policies and documentation"
+      ]
+    },
+    {
+      "name": "Software & Applications",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Operations covering software and applications",
+        "Includes information about browsers, network tools, development tools, security applications, and productivity apps",
+        "Contains an approved software list"
+      ]
+    },
+    {
+      "name": "Policies, Documentation & Support",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Operations covering policies, documentation, and support",
+        "Includes information for new employees, AV support, monitoring, and documentation standards",
+        "Contains guidance on submitting and viewing tickets with JSM"
+      ]
+    },
+    {
+      "name": "Templates",
+      "entityType": "Section",
+      "observations": [
+        "Section containing templates for creating new content in the knowledge base",
+        "Includes templates for how-to guides and troubleshooting articles",
+        "Provides standardized formats for consistent documentation"
+      ]
+    },
+    {
+      "name": "Schedulers",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of High Performance Computing covering job schedulers",
+        "Includes documentation on Grid Engine and Slurm schedulers",
+        "Contains frequently used commands for both scheduler types"
+      ]
+    },
+    {
+      "name": "Cloud & Network Infrastructure",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Systems & Services covering cloud and network infrastructure",
+        "Includes information about AWS, GCP, and GitHub Enterprise",
+        "Contains documentation on cloud services and network resources"
+      ]
+    },
+    {
+      "name": "Storage, Archives & Backups",
+      "entityType": "Subsection",
+      "observations": [
+        "Subsection of Systems & Services covering storage, archives, and backups",
+        "Includes information about Box, network attached storage, archive servers, and FTP",
+        "Contains documentation on storage management and migration"
+      ]
+    },
+    {
+      "name": "Portland Office",
+      "entityType": "Office",
+      "observations": [
+        "Schrödinger office located in Portland, Oregon",
+        "Address: 101 SW Main Street, Suite 1300, Portland, OR 97204",
+        "Has resources including printers and wireless access",
+        "Wireless network name is 'schrodinger' with WPA2/AES encryption"
+      ]
+    },
+    {
+      "name": "Okta",
+      "entityType": "AuthenticationSystem",
+      "observations": [
+        "Identity provider used at Schrödinger for authentication",
+        "Supports multi-factor authentication including fingerprint readers and security keys",
+        "Users are encouraged to set up multiple authentication factors",
+        "Accessible at schrodinger.okta.com"
+      ]
+    },
+    {
+      "name": "Slurm",
+      "entityType": "JobScheduler",
+      "observations": [
+        "Job scheduler used on Schrödinger's HPC clusters",
+        "Provides commands for submitting, monitoring, and managing jobs",
+        "Supports batch jobs and interactive sessions",
+        "Uses partitions (queues) to organize compute resources"
+      ]
+    },
+    {
+      "name": "Grid Engine",
+      "entityType": "JobScheduler",
+      "observations": [
+        "Alternative job scheduler used on some Schrödinger HPC clusters",
+        "Documentation includes frequently used commands"
+      ]
+    },
+    {
+      "name": "bolt",
+      "entityType": "HPCCluster",
+      "observations": [
+        "One of Schrödinger's HPC clusters",
+        "Mentioned in the HPC User Guide"
+      ]
+    },
+    {
+      "name": "pdxgpu",
+      "entityType": "HPCCluster",
+      "observations": [
+        "One of Schrödinger's HPC clusters",
+        "GPU-focused cluster",
+        "Mentioned in the HPC User Guide"
+      ]
+    },
+    {
+      "name": "Software Governance",
+      "entityType": "Process",
+      "observations": [
+        "Process for approving new software at Schrödinger",
+        "Requires submission of a software request form",
+        "Documentation is still under development (marked with TODO)"
+      ]
+    },
+    {
+      "name": "Browsers",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes web browsers used at Schrödinger"
+      ]
+    },
+    {
+      "name": "Network & Remote Access",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes tools for network access and remote connectivity"
+      ]
+    },
+    {
+      "name": "Development Tools",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes tools for software development"
+      ]
+    },
+    {
+      "name": "Security & Authentication",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes tools for security and authentication",
+        "Contains guides for Okta, passwordless SSH, and other security features"
+      ]
+    },
+    {
+      "name": "Scientific Computing",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes tools for scientific computing and research"
+      ]
+    },
+    {
+      "name": "Productivity Apps",
+      "entityType": "SoftwareCategory",
+      "observations": [
+        "Category of software in the Software & Applications section",
+        "Includes productivity applications used at Schrödinger"
+      ]
+    },
+    {
+      "name": "Fingerprint Authentication",
+      "entityType": "AuthenticationMethod",
+      "observations": [
+        "Method for authenticating with Okta using built-in fingerprint readers",
+        "Supported on Chrome on macOS and Windows and Firefox on Windows",
+        "Requires enrollment of fingerprint with Touch ID / Windows Hello",
+        "Recommended as an additional authentication factor"
+      ]
+    },
+    {
+      "name": "Passwordless SSH",
+      "entityType": "AuthenticationMethod",
+      "observations": [
+        "Method for connecting to systems without entering a password",
+        "Documentation available for setup on Windows, Linux, and MacOS",
+        "Used for secure access to systems including HPC clusters"
+      ]
+    },
+    {
+      "name": "JAMF",
+      "entityType": "DeviceManagementTool",
+      "observations": [
+        "Device management tool specifically designed for Apple products",
+        "Helps IT team track Mac computers and ensure they run smoothly and securely",
+        "Provides inventory tracking, remote assistance, and proactive management",
+        "Includes Self Service application for easy installation of company-approved software"
+      ]
+    },
+    {
+      "name": "JAMF Connect",
+      "entityType": "AuthenticationTool",
+      "observations": [
+        "Simplifies macOS authentication by linking the login process with Okta",
+        "Ensures password consistency between Okta and local macOS accounts",
+        "Enhances security and streamlines access management",
+        "Reduces the need for separate Mac credentials"
+      ]
+    },
+    {
+      "name": "Self Service",
+      "entityType": "SoftwareApplication",
+      "observations": [
+        "Application included with JAMF device management",
+        "Provides a curated list of company-approved applications for easy installation",
+        "Allows users to run IT-approved maintenance scripts and system updates",
+        "Enables on-demand installation of security patches and configuration profiles",
+        "Offers access to company resources such as VPN configurations, printer setups, and network settings"
+      ]
+    },
+    {
+      "name": "MacOS Upgrade Process",
+      "entityType": "Process",
+      "observations": [
+        "Process for upgrading MacOS versions on Schrödinger devices",
+        "Includes preparation steps, installation instructions, and post-installation tasks",
+        "Warns about compatibility issues with new MacOS versions",
+        "Recommends waiting for official IT support before upgrading to new major versions"
+      ]
+    },
+    {
+      "name": "Apple Devices",
+      "entityType": "HardwareCategory",
+      "observations": [
+        "Category of hardware devices used at Schrödinger",
+        "Includes standard Apple devices offered as company equipment",
+        "Managed through JAMF for security and consistency",
+        "Includes MacBooks and iPads"
+      ]
+    },
+    {
+      "name": "Network Drive Mounting",
+      "entityType": "Process",
+      "observations": [
+        "Process for connecting to network drives on Mac devices",
+        "Includes instructions for CIFS connections to servers like pdx-stor and nyc-stor",
+        "Provides methods for reconnecting to shares",
+        "Explains the significance of the /Volumes path in macOS"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "IT Knowledge Base",
+      "to": "High Performance Computing",
+      "relationType": "contains"
+    },
+    {
+      "from": "IT Knowledge Base",
+      "to": "Information Security",
+      "relationType": "contains"
+    },
+    {
+      "from": "IT Knowledge Base",
+      "to": "Operations",
+      "relationType": "contains"
+    },
+    {
+      "from": "IT Knowledge Base",
+      "to": "Templates",
+      "relationType": "contains"
+    },
+    {
+      "from": "High Performance Computing",
+      "to": "HPC User Guide",
+      "relationType": "contains"
+    },
+    {
+      "from": "High Performance Computing",
+      "to": "Schedulers",
+      "relationType": "contains"
+    },
+    {
+      "from": "Operations",
+      "to": "Systems & Services",
+      "relationType": "contains"
+    },
+    {
+      "from": "Operations",
+      "to": "Office Locations & Services",
+      "relationType": "contains"
+    },
+    {
+      "from": "Operations",
+      "to": "Hardware & Equipment",
+      "relationType": "contains"
+    },
+    {
+      "from": "Operations",
+      "to": "Software & Applications",
+      "relationType": "contains"
+    },
+    {
+      "from": "Operations",
+      "to": "Policies, Documentation & Support",
+      "relationType": "contains"
+    },
+    {
+      "from": "Systems & Services",
+      "to": "Cloud & Network Infrastructure",
+      "relationType": "contains"
+    },
+    {
+      "from": "Systems & Services",
+      "to": "Storage, Archives & Backups",
+      "relationType": "contains"
+    },
+    {
+      "from": "Office Locations & Services",
+      "to": "Portland Office",
+      "relationType": "contains"
+    },
+    {
+      "from": "HPC User Guide",
+      "to": "Schedulers",
+      "relationType": "references"
+    },
+    {
+      "from": "Templates",
+      "to": "IT Knowledge Base",
+      "relationType": "standardizes"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Browsers",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Network & Remote Access",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Development Tools",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Security & Authentication",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Scientific Computing",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Productivity Apps",
+      "relationType": "contains"
+    },
+    {
+      "from": "Software & Applications",
+      "to": "Software Governance",
+      "relationType": "implements"
+    },
+    {
+      "from": "Security & Authentication",
+      "to": "Okta",
+      "relationType": "documents"
+    },
+    {
+      "from": "Security & Authentication",
+      "to": "Fingerprint Authentication",
+      "relationType": "documents"
+    },
+    {
+      "from": "Security & Authentication",
+      "to": "Passwordless SSH",
+      "relationType": "documents"
+    },
+    {
+      "from": "Okta",
+      "to": "Fingerprint Authentication",
+      "relationType": "supports"
+    },
+    {
+      "from": "High Performance Computing",
+      "to": "bolt",
+      "relationType": "manages"
+    },
+    {
+      "from": "High Performance Computing",
+      "to": "pdxgpu",
+      "relationType": "manages"
+    },
+    {
+      "from": "Slurm",
+      "to": "bolt",
+      "relationType": "schedules"
+    },
+    {
+      "from": "Slurm",
+      "to": "pdxgpu",
+      "relationType": "schedules"
+    },
+    {
+      "from": "Grid Engine",
+      "to": "bolt",
+      "relationType": "schedules"
+    },
+    {
+      "from": "Schedulers",
+      "to": "Slurm",
+      "relationType": "documents"
+    },
+    {
+      "from": "Schedulers",
+      "to": "Grid Engine",
+      "relationType": "documents"
+    },
+    {
+      "from": "Passwordless SSH",
+      "to": "High Performance Computing",
+      "relationType": "enablesAccessTo"
+    },
+    {
+      "from": "Office Locations & Services",
+      "to": "Portland Office",
+      "relationType": "documents"
+    },
+    {
+      "from": "Hardware & Equipment",
+      "to": "Apple Devices",
+      "relationType": "contains"
+    },
+    {
+      "from": "JAMF",
+      "to": "Apple Devices",
+      "relationType": "manages"
+    },
+    {
+      "from": "JAMF",
+      "to": "Self Service",
+      "relationType": "provides"
+    },
+    {
+      "from": "JAMF Connect",
+      "to": "Okta",
+      "relationType": "integratesWith"
+    },
+    {
+      "from": "Apple Devices",
+      "to": "MacOS Upgrade Process",
+      "relationType": "follows"
+    },
+    {
+      "from": "Apple Devices",
+      "to": "Network Drive Mounting",
+      "relationType": "uses"
+    },
+    {
+      "from": "Security & Authentication",
+      "to": "JAMF Connect",
+      "relationType": "documents"
+    },
+    {
+      "from": "Hardware & Equipment",
+      "to": "JAMF",
+      "relationType": "uses"
+    }
+  ]
+}
