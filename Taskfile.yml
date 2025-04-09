@@ -1,0 +1,41 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show help information
+    cmds:
+      - task --list
+
+  build-desktop:
+    desc: Build the desktop application
+    cmds:
+      - cargo build --package frontend --release
+      - echo "Desktop application built at target/release/frontend"
+
+  build-web:
+    desc: Build the web application
+    cmds:
+      - mkdir -p dist
+      - cd frontend && wasm-pack build --target web --out-dir ../dist/pkg
+      - cp frontend/index.html dist/
+      - cp frontend/styles.css dist/
+
+  test:
+    desc: Run all tests
+    cmds:
+      - cargo test --all
+
+  lint:
+    desc: Run linting checks
+    cmds:
+      - cargo clippy --all -- -D warnings
+
+  dev-frontend:
+    desc: Run the frontend development server
+    cmds:
+      - mkdir -p dist
+      - cd frontend && wasm-pack build --target web --out-dir ../dist/pkg
+      - cp frontend/index.html dist/
+      - cp frontend/styles.css dist/
+      - echo "Starting development server at http://localhost:8080"
+      - cd dist && python3 -m http.server 8080
