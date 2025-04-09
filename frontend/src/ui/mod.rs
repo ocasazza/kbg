@@ -14,17 +14,8 @@ pub mod graph_view;
 
 /// Render the UI
 pub fn render(app: &mut App, ctx: &egui::Context) {
-    // First, render the graph in the background
-    egui::CentralPanel::default().show(ctx, |ui| {
-        // Render the graph and get the response for interactions
-        let response = graph_view::render(app, ui);
-        
-        // Handle graph interactions
-        interactions::handle_interactions(app, ctx, &response);
-    });
-    
-    // Left panel for controls (rendered on top of the graph)
-    egui::SidePanel::left("controls_panel").show(ctx, |ui| {
+    // Left panel for controls
+    let _left_panel = egui::SidePanel::left("controls_panel").show(ctx, |ui| {
         ui.heading("Graph Controls");
         
         // View controls section
@@ -40,8 +31,17 @@ pub fn render(app: &mut App, ctx: &egui::Context) {
         statistics::render(app, ui);
         
         // Graph operations section
-        graph_operations::render(app, ui)
-    })
+        graph_operations::render(app, ui);
+    });
+    
+    // Central panel for the graph
+    let _central_panel = egui::CentralPanel::default().show(ctx, |ui| {
+        // Render the graph and get the response for interactions
+        let response = graph_view::render(app, ui);
+        
+        // Handle graph interactions
+        interactions::handle_interactions(app, ctx, &response);
+    });
 }
 
 /// Render the controls panel

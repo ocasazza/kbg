@@ -160,7 +160,12 @@ impl App {
         // Set input attributes
         input.set_type("file");
         input.set_accept(".json,.csv,.dot,.gv");
-        input.set_style("display: none");
+        
+        // Set style using the style property of HtmlElement
+        // First cast to HtmlElement to access the style property
+        let html_element: &web_sys::HtmlElement = input.dyn_ref().unwrap();
+        let style = html_element.style();
+        let _ = style.set_property("display", "none");
         
         // Add input to document body
         let body = document.body().expect("document should have a body");

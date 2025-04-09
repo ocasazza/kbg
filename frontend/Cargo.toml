@@ -29,6 +29,8 @@ web-sys = { version = "0.3", features = [
     "Element",
     "HtmlCanvasElement",
     "HtmlInputElement",
+    "HtmlElement",
+    "CssStyleDeclaration",
     "File",
     "FileList",
     "FileReader",
