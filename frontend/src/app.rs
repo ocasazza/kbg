@@ -1,6 +1,5 @@
 use std::collections::{HashSet, HashMap};
 use shared::types::{Graph, LayoutAlgorithm, GlobalRenderOptions, Viewport};
-use std::sync::mpsc;
 
 // Custom time implementation for cross-platform support
 #[cfg(not(target_arch = "wasm32"))]
@@ -186,6 +185,9 @@ impl App {
                     let reader = FileReader::new().expect("should be able to create FileReader");
                     let reader_clone = reader.clone();
                     
+                    // Clone the file name before moving into closure
+                    let file_name = file.name();
+                    
                     // Create a closure to handle file load
                     let app_ptr = app_ptr;
                     let onload_closure = Closure::wrap(Box::new(move |_event: web_sys::Event| {
@@ -195,8 +197,7 @@ impl App {
                             .as_string()
                             .expect("result should be a string");
                         
-                        // Get file name and extension
-                        let file_name = file.name();
+                        // Get extension from file name
                         let extension = file_name.split('.').last()
                             .map(|ext| ext.to_lowercase())
                             .unwrap_or_else(|| "json".to_string());
