@@ -13,12 +13,31 @@ tasks:
       - echo "Desktop application built at target/release/frontend"
 
   build-web:
-    desc: Build the web application
+    desc: Build the web application using Trunk
     cmds:
-      - mkdir -p dist
-      - cd frontend && wasm-pack build --target web --out-dir ../dist/pkg
-      - cp frontend/index.html dist/
-      - cp frontend/styles.css dist/
+      - cd frontend && trunk build --release
+      - echo "Web application built at frontend/dist"
+      
+  deploy-web:
+    desc: Deploy the web application to GitHub Pages manually
+    deps: [build-web]
+    cmds:
+      - echo "Deploying web application to GitHub Pages..."
+      - |
+        if [ -z "$(git status --porcelain)" ]; then
+          # Working directory is clean
+          git checkout -b gh-pages-deploy
+          cp -r frontend/dist/* .
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push -f origin gh-pages-deploy:gh-pages
+          git checkout -
+          git branch -D gh-pages-deploy
+          echo "Deployed to GitHub Pages successfully!"
+        else
+          echo "Error: Working directory is not clean. Please commit or stash your changes first."
+          exit 1
+        fi
 
   test:
     desc: Run all tests
@@ -31,7 +50,13 @@ tasks:
       - cargo clippy --all -- -D warnings
 
   dev-frontend:
-    desc: Run the frontend development server
+    desc: Run the frontend development server using Trunk
+    cmds:
+      - cd frontend && trunk serve
+      - echo "Development server started at http://localhost:8080"
+      
+  dev-frontend-old:
+    desc: Run the frontend development server (legacy method)
     cmds:
       - mkdir -p dist
       - cd frontend && wasm-pack build --target web --out-dir ../dist/pkg

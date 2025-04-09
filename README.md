@@ -205,11 +205,54 @@ The executable will be in `target/release/frontend`.
 
 ### Web Application
 
+#### Using Task
+
 ```bash
 task build-web
 ```
 
 The web application will be in the `dist` directory.
+
+#### Using Trunk Directly
+
+You can also build the web application directly using Trunk:
+
+```bash
+# Install Trunk if you haven't already
+cargo install trunk
+
+# Install the WebAssembly target
+rustup target add wasm32-unknown-unknown
+
+# Build the web application
+cd frontend
+trunk build --release
+```
+
+The built files will be in the `frontend/dist` directory.
+
+## GitHub Pages Deployment
+
+This project is configured to automatically deploy the web frontend to GitHub Pages when changes are pushed to the main branch. The deployment is handled by a GitHub Actions workflow defined in `.github/workflows/deploy-web.yml`.
+
+### Viewing the Deployed Application
+
+The web application is deployed to: https://ocasazza.github.io/kbg/
+
+### Manual Deployment
+
+You can also manually trigger the deployment workflow from the GitHub Actions tab in the repository.
+
+### Local Testing of the Web Build
+
+To test the web build locally before deployment:
+
+```bash
+cd frontend
+trunk serve --release
+```
+
+This will start a local server at http://localhost:8080 serving the web application.
 
 ## Academic Papers
 Graphviz Papers
