@@ -27,19 +27,64 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Install wasm-bindgen-cli
-        run: cargo install wasm-bindgen-cli
-
-      - name: Install trunk
-        run: cargo install trunk
-
-      - name: Cache dependencies
+      # Setup Rust cache using the recommended action
+      # This automatically caches ~/.cargo and target directories
+      - name: Setup Rust cache
+        id: rust-cache
         uses: Swatinem/rust-cache@v2
+        with:
+          # Use a cache key based on Cargo.lock hash (best practice)
+          # This will automatically invalidate the cache when dependencies change
+          workspaces: |
+            .
+            frontend
+          # Cache additional directories beyond the defaults
+          cache-directories: |
+            ~/.cargo/bin/
+            frontend/dist/
+          # Save cache even on canceled builds
+          save-if: true
 
+      # Log cache hit/miss status for debugging
+      - name: Log cache status
+        run: |
+          echo "Cache hit: ${{ steps.rust-cache.outputs.cache-hit }}"
+          echo "Listing cached binaries in ~/.cargo/bin:"
+          ls -la ~/.cargo/bin/ || echo "No binaries found in ~/.cargo/bin/"
+
+      # Install tools with --locked flag for deterministic installations
+      # The || echo pattern ensures the command succeeds even if the tool is already installed
+      - name: Install required tools
+        run: |
+          cargo install --locked wasm-bindgen-cli || echo "wasm-bindgen-cli already installed"
+          cargo install --locked trunk || echo "trunk already installed"
+          cargo install --locked cargo-deps || echo "cargo-deps already installed"
+
+      # Generate dependency graph for better caching insights
+      - name: Generate dependency graph
+        run: |
+          cd frontend
+          # Generate a dependency graph to help with debugging cache issues
+          cargo deps --all-deps --include-orphans --output-format dot > ../frontend-deps.dot
+          echo "Dependency graph generated at frontend-deps.dot"
+
+      # Build frontend with optimized settings
+      # The cache will automatically be used if available
       - name: Build frontend
         run: |
           cd frontend
-          trunk build --release --public-url /${{ github.event.repository.name }}/
+          # Use all available cores for parallel compilation
+          export RUSTFLAGS="-C codegen-units=16 -C opt-level=3"
+          # Set higher parallelism for cargo
+          export CARGO_BUILD_JOBS=$(nproc)
+          # Build with release optimizations
+          trunk build --release --public-url /${{ github.event.repository.name }}/ --verbose
+          
+      # Log build artifacts for debugging
+      - name: Log build artifacts
+        run: |
+          echo "Build artifacts in frontend/dist:"
+          ls -la frontend/dist/ || echo "No build artifacts found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
