@@ -144,7 +144,7 @@ impl App {
     #[cfg(target_arch = "wasm32")]
     fn upload_file_web(&mut self) {
         use wasm_bindgen::prelude::*;
-        use web_sys::{File, FileReader, HtmlInputElement};
+        use web_sys::{FileReader, HtmlInputElement};
         use wasm_bindgen::JsCast;
         
         let window = web_sys::window().expect("no global window exists");
@@ -172,6 +172,7 @@ impl App {
         
         // Create a closure to handle file selection
         let app_ptr = self as *mut App;
+        let app_ptr_clone = app_ptr;
         let closure = Closure::wrap(Box::new(move |event: web_sys::Event| {
             let input: HtmlInputElement = event.target()
                 .expect("event should have a target")
@@ -185,11 +186,12 @@ impl App {
                     let reader = FileReader::new().expect("should be able to create FileReader");
                     let reader_clone = reader.clone();
                     
-                    // Clone the file name before moving into closure
+                    // Clone the file name and create a string to avoid moving the file into the closure
                     let file_name = file.name();
+                    let file_name_clone = file_name.clone();
                     
                     // Create a closure to handle file load
-                    let app_ptr = app_ptr;
+                    let app_ptr = app_ptr_clone;
                     let onload_closure = Closure::wrap(Box::new(move |_event: web_sys::Event| {
                         // Get file content as text
                         let content = reader_clone.result()
@@ -198,7 +200,7 @@ impl App {
                             .expect("result should be a string");
                         
                         // Get extension from file name
-                        let extension = file_name.split('.').last()
+                        let extension = file_name_clone.split('.').last()
                             .map(|ext| ext.to_lowercase())
                             .unwrap_or_else(|| "json".to_string());
                         
@@ -216,7 +218,7 @@ impl App {
                                 if let Some(state) = &mut app.file_upload_state {
                                     state.file_content = content.clone();
                                     state.file_type = file_type.to_string();
-                                    state.file_name = Some(file_name);
+                                    state.file_name = Some(file_name_clone.to_string());
                                     state.error_message = None;
                                 }
                                 

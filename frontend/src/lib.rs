@@ -19,13 +19,14 @@ mod web {
         let web_options = eframe::WebOptions::default();
         
         wasm_bindgen_futures::spawn_local(async move {
-            eframe::start_web(
-                canvas_id,
-                web_options,
-                Box::new(|cc| Box::new(crate::app::App::default())),
-            )
-            .await
-            .expect("Failed to start eframe");
+            eframe::WebRunner::new()
+                .start(
+                    &canvas_id,
+                    web_options,
+                    Box::new(|_cc| Box::new(crate::app::App::default())),
+                )
+                .await
+                .expect("Failed to start eframe");
         });
         
         Ok(())

@@ -1,5 +1,5 @@
 use egui::{Color32, Stroke, Pos2, Vec2};
-use shared::types::{Node, Edge};
+use shared::types::Graph;
 use crate::app::{App, AnimationState, FileUploadState};
 use crate::utils::hex_to_color32;
 use crate::layout;
